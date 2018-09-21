@@ -1,0 +1,16 @@
+# Site settings
+title: Giusepe Casagrande
+description: Xamarin, Unity and C# development in general
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://www.giusepe.com" # the base hostname & protocol for your site
+twitter_username: giusepe
+github_username:  giusepe
+
+# Build settings
+markdown: kramdown
+
+permalink: /blog/:year/:month/:day/:title/
+
+google_analytics: UA-0000000-1
+
+disqus_shortname: giusepe-casagrande
