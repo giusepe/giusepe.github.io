@@ -32,6 +32,7 @@ Assuming that you know how Xamarin.Forms navigation stack works, let's just tack
 5) And since we are talking about Sextant here, you need to provide an instance of viewStackService to each tab.
 
 Considering this as the main page, you need to instantiate TabBarNavigationView and add navigation to each tab:
+
    1) OneNavigationView => Push an instance of OneAView and OneAViewModel
    
    2) TwoNavigationView => Push an instance of TwoAView and TwoAViewModel
