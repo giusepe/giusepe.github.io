@@ -13,14 +13,17 @@ Assuming that you know how Xamarin.Forms navigation stack works, let's just tack
 ### To create a TabbedPage on Xamarin.Forms, you will need:
 
 1) TabBarNavigationView : ReactiveTabbedPage<TabBarNavigationViewModel>
+   
 2) Some views:
    * HomeView
    * RedView
    * BlueAView
+  
 3) The view models for those views:
    * HomeViewModel
    * RedViewModel
    * BlueAViewModel
+  
 4) A navigation page for each tab, so you are allowed to navigate inside the tabs:
    * OneNavigationView
    * TwoNavigationView
@@ -30,8 +33,12 @@ Assuming that you know how Xamarin.Forms navigation stack works, let's just tack
 
 Considering this as the main page, you need to instantiate TabBarNavigationView and add navigation to each tab:
    1) OneNavigationView => Push an instance of OneAView and OneAViewModel
+   
    2) TwoNavigationView => Push an instance of TwoAView and TwoAViewModel
+   
    3) ThreeNavigationView => Push an instance of ThreeAView and ThreeAViewModel
+
+
 
 Then set this TabBarNavigationView as your MainPage and you will be ready to roll.
 
