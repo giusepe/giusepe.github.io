@@ -64,5 +64,4 @@ So your stack will look like this when starting the app:
 
 Only one real view/ViewModel will get created and rendered, the others are just empty pages that will push the real ones when activated. 
 
-Here in this link where you can find a working sample of this concept:
-https://github.com/giusepe/TabbedPageSextantSample
+[Here in this link where you can find a working sample of this concept](https://github.com/giusepe/TabbedPageSextantSample)
