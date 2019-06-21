@@ -4,13 +4,13 @@ title: Optimized TabbedPage with Xamarin.Forms, ReactiveUI and Sextant
 date: '2019-06-21 17:00:00'
 ---
 
-## App Start
+# App Start
 
 Let's start saying that building a tabbed page with Xamarin was always a bit tricky, especially until you understand the concept of navigation stacks.
 
 Assuming that you know how Xamarin.Forms navigation stack works, let's just tackle here the problems related to the tabbed page:
 
-### To create a TabbedPage on Xamarin.Forms, you will need:
+## To create a TabbedPage on Xamarin.Forms, you will need:
 
 1) TabBarNavigationView : ReactiveTabbedPage<TabBarNavigationViewModel>
    
