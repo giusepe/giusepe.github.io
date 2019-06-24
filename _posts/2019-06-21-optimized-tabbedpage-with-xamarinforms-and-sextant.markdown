@@ -59,12 +59,14 @@ This happens because of Xamarin.Forms TabbedPage doesn't support virtualization.
 
 The solution to this problem is to delay the creating of the View and ViewModels until they Appear, this way only the first View/ViewModel will be created and rendered.
 
-And a way to do that on Xamarin.Forms is creating a very light intermediate View/ViewModels that pushed the real page on appearing. This intermediate View/ViewModel is called TabView/TabViewModel.
+And a way to do that on Xamarin.Forms is creating a very light intermediate View/ViewModels that pushed the real page on appearing. This intermediate View/ViewModel is called `TabView`/`TabViewModel`.
 
 So your stack will look like this when starting the app:
 
 ![Dfault TabbedPage](/img/posts/2019-06-21/OptimizedApp.jpg)
 
 Only one real view/ViewModel will get created and rendered, the others are just empty pages that will push the real ones when activated. 
+
+Once a tab is activated and the real page is pushed, the stack on that tab needs to be reset, so there's no way to go back to the `TabViewModel`. Also, next time the user switch between tabs the pages won't need to be recreated.
 
 [Here in this link where you can find a working sample of this concept](https://github.com/giusepe/TabbedPageSextantSample)
