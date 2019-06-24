@@ -2,7 +2,10 @@
 layout: post
 title: Optimized TabbedPage with Xamarin.Forms, ReactiveUI and Sextant
 date: '2019-06-21 17:00:00'
+background: '/img/posts/2019-06-21/header.png'
 ---
+
+Xanarin.Forms don't offer a very optimized way to render the tabbed page when first loading you App, so let's fix this.
 
 # App Start
 
@@ -45,7 +48,7 @@ Then set this TabBarNavigationView as your MainPage and you will be ready to rol
 
 Here is how they look as stacks:
 
-![Dfault TabbedPage](/assets/2019-06-21-AppStart.jpg)
+![Dfault TabbedPage](/img/posts/2019-06-21/AppStart.jpg)
 
 Now take some time and notice how all the pages are already created and just waiting to appear.
 From a ViewModel-First perspective, it means that the ViewModels for those pages are also already created and anything that runs on the constructor will be already done (for example, loading some items for a list to be ready to display on appearing), which can add a ton of a load time as this TabbedPage is the first page of your app.
@@ -60,7 +63,7 @@ And a way to do that on Xamarin.Forms is creating a very light intermediate View
 
 So your stack will look like this when starting the app:
 
-![Dfault TabbedPage](/assets/2019-06-21-OptimizedApp.jpg)
+![Dfault TabbedPage](/img/posts/2019-06-21/OptimizedApp.jpg)
 
 Only one real view/ViewModel will get created and rendered, the others are just empty pages that will push the real ones when activated. 
 

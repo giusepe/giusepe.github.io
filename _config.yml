@@ -1,16 +1,25 @@
-# Site settings
-title: Giusepe Casagrande
-description: Xamarin, Unity and C# development in general
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://giusepe.github.io/" # the base hostname & protocol for your site
-twitter_username: giusepe
-github_username:  giusepe
+title:              Giusepe Casagrande
+email:              giusepe@gmail.com
+description:        Xamarin, Unity and C# development in general
+author:             Giusepe Casagrande
+baseurl:            ""
+url:                "https://giusepe.github.io"
+
+# Social Profiles
+twitter_username:   giusepe
+github_username:    giusepe
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-0000000-1
+disqus_shortname: giusepe-casagrande
 
 # Build settings
-markdown: kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
 
-permalink: /blog/:year/:month/:day/:title/
-
-google_analytics: UA-0000000-1
-
-disqus_shortname: giusepe-casagrande
+redcarpet:
+  extensions: ["no_intra_emphasis", "tables", "autolink", "strikethrough", "with_toc_data"]

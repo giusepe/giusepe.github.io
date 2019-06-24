@@ -9,7 +9,7 @@ Or even when it starts to give you some weird errors, weird behavior "for no rea
 
 Well, fear no more! There's a simple solution for that (actually 2):
 
-A while back, before I started using git on a terminal, I had a simple shell script to clean my`bin/obj` folders: 
+A while back, before I started using git on a terminal, I had a simple shell script to clean my `bin/obj` folders: 
 ```bash
 find . -iname "bin" -o -iname "obj" | xargs rm -rf
 ```

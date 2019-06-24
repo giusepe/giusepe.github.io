@@ -1,22 +1,21 @@
 <!DOCTYPE html>
+
 <html>
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+<body>
 
-    <div id="layout" class="pure-g">
-        {% include sidebar.html %}
+  {% include navbar.html %}
 
-        <div class="content pure-u-1 pure-u-md-3-4">
-            <div>
-                {{ content }}
+  {{ content }}
 
-                {% include footer.html %}
-            </div>
-        </div>
-    </div>
+  {% include footer.html %}
 
-  </body>
+  {% include scripts.html %}
+
+  {% include google-analytics.html %}
+
+</body>
 
 </html>
