@@ -29,12 +29,12 @@ Every time I run this, Fastlane "complains" a bit and ask you to configure it ma
 [00:01:30]: Created new folder './fastlane'.
 [00:01:30]: No iOS or Android projects were found in directory '/Users/Giusepe/Git/ReactiveUI/ReactiveUI.Samples/xamarin-forms/Cinephile'
 [00:01:30]: Make sure to `cd` into the directory containing your iOS or Android app
-[00:01:30]: Alternatively, would you like to manually set up a fastlane config in the current directory instead? (y/n)
+[00:01:30]: Alternatively, would you like to manually set up a Fastlane config in the current directory instead? (y/n)
 ```
 Just hit `y`  and answer the questions.
 
 Go to your project root folder and run: ```fastlane match init```
-Select the git repository as a storage and type or paste the path to your repo, something like *https://companyname.visualstudio.com/projectName/_git/MobileCertificates*.
+Select the git repository as storage and type or paste the path to your repo, something like *https://companyname.visualstudio.com/projectName/_git/MobileCertificates*.
 
 Now there's a folder called `fastlane`, do a `cd fastlane` and edit the `Matchfile`, here is a sample content:
 
@@ -80,9 +80,9 @@ Make sure you have saved all of them.
 Now it's a good moment to try to build and deploy it locally.
 If everything is working, commit, push your changes and let's move to the next phase.
 
-Notice that at this point, any other developer just need to install fastlane, run `fastlane match development` and will be ready to work.
+Notice that at this point, any other developer just need to install Fastlane, run `fastlane match development` and will be ready to work.
 
-Well, remember that I said there's no plugin or task to handle fastlane match inside DevOps? So the solution I found was to write a bash script and call it with a bash task.
+Well, remember that I said there's no plugin or task to handle Fastlane match inside DevOps? So the solution I found was to write a bash script and call it with a bash task.
 Here is how my script (`fastlane.sh`) looks like: 
 
 ```bash
@@ -105,7 +105,7 @@ fi
 
 So the first thing I want to mention here is the `if [ "$1" == "devops" ]; then`, I added that after running the script on my computer and almost lost my keychains... so be warned: don't run this on your local computer with the "devops" parameter.
 
-If you try to run fastlane match directly inside DevOps with the default keychain, it will most likely fail and or your build will hang on the signing process because the agent will be asking for a password in some windows somewhere in the cloud and nobody can answer that.
+If you try to run Fastlane match directly inside DevOps with the default keychain, it will most likely fail and or your build will hang on the signing process because the agent will be asking for a password in some windows somewhere in the cloud and nobody can answer that.
 So the solution is to create a temporary keychain and unlock it. 
 ```bash
 echo "Setting security"
@@ -150,7 +150,7 @@ platform :ios do
 end
 ```
 
-This lame makes sure we are running the match using the keychain we defined in fastlane.sh and also passes the SYSTEM_ACCESSTOKEN so that the fastlene can access the git repo from the ci machine.
+This lame makes sure we are running the match using the keychain we defined in fastlane.sh and also passes the SYSTEM_ACCESSTOKEN so that the Fastlane can access the git repo from the ci machine.
 
 Now it's time to YAML (https://noyaml.com but yeah, better than using the classic UI from DevOps)
 
@@ -190,7 +190,7 @@ Here is how my step for building Xamarin.iOS looks like:
           ArtifactName: 'iOS IPA'
 ```
 
-The only two differences here from the traditional build without fastlane are:
+The only two differences here from the traditional build without Fastlane are:
 
 1) The script task where we set 2 environment variables and call fastlane.sh. 
 It's important to mention that while `$(System.AccessToken)` is a DevOps variable and you don't need to set any value before using, `$(match.password)` is a user-defined secret variable and it's where you will put your match encryption key. 
@@ -218,7 +218,7 @@ It's important to mention that while `$(System.AccessToken)` is a DevOps variabl
           signingProvisioningProfileID: 'match AdHoc com.companyname.projectName'
 ```
 
-I looked into the `*iOS.csproj` and looked at how it was after the fastlane configurations and copied here. 
+I looked into the `*iOS.csproj` and looked at how it was after the Fastlane configurations and copied here. 
 This snippet is set for an AdHoc build, if I wanted to do an App Store one all I need to change is `signingProvisioningProfileID: 'match AppStore com.companyname.projectName'`
 
 Well, we are all set here... just commit, push and cross fingers :)
@@ -227,4 +227,4 @@ I doubt that this will work right away for anyone, it never does... but I hope t
 
 Looking back at all of this, I think that the ideal solution would be to use this knowledge to build a plugin for DevOps and simplify this process even more. 
 
-Feel free to share your experience with me and/or report any issues with this "tutotial". 
+Feel free to share your experience with me and/or report any issues with this "tutorial". 
