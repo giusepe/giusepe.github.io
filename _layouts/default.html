@@ -9,6 +9,10 @@
   {% include navbar.html %}
 
   {{ content }}
+  
+  {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+  {% endif %}
 
   {% include footer.html %}
 
